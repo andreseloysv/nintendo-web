@@ -1,0 +1,10 @@
+/node_modules/**
+/tests/**
+/config/**
+/coverage/**
+/deployment/**
+/doc/**
+/documentation/**
+/public/**
+/scripts/**
+vue.config.js
