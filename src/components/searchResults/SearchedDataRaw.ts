@@ -1,3 +1,4 @@
+/* eslint-disable */
 export const searchedDataRaw = {
   responseHeader: {
     status: 0,
