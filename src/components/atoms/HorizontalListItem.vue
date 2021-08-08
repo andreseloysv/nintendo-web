@@ -8,23 +8,22 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import { Swiper, SwiperSlide } from '@mscalessio/vue2-swiper';
 import { Item } from '../searchResults/ResultList';
 
 @Component({
   name: 'HorizontalListItem',
-  components: {
-    Swiper,
-    SwiperSlide,
-  },
+  components: {},
 })
 export default class HorizontalListItem extends Vue {
-  @Prop({ type: Object }) private item: Item;
-  @Prop({ type: Number }) private index: number;
+  @Prop({ type: Object }) private item!: Item;
+  @Prop({ type: Number }) private index!: number;
 
   private get id() {
-    const title = this.item.title.toLowerCase().split(' ').join('-');
-    return `${this.index}-${title}`;
+    if (this.item && this.item.title) {
+      const title = this.item.title.toLowerCase().split(' ').join('-');
+      return `${this.index}-${title}`;
+    }
+    return '';
   }
 }
 </script>

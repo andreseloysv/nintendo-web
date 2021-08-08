@@ -16,8 +16,9 @@
     "paths": {
       "@/*": ["src/*"]
     },
+    "typeRoots": ["src/types", "./node_modules/@types"],
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "tests/**/*.ts", "tests/**/*.tsx"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "tests/**/*.ts", "tests/**/*.tsx", "types/**/*.d.ts"],
   "exclude": ["node_modules", "**/*.spec.ts"]
 }

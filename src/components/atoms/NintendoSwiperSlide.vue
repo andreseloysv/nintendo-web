@@ -1,5 +1,6 @@
 <template>
-  <swiper :slides-per-view="slidesPerView" :space-between="spaceBetween" :slides-per-group="slidesPerGroup">
+  <swiper :slides-per-view="this.slidesPerView" :space-between="this.spaceBetween"
+    :slides-per-group="this.slidesPerGroup">
     <swiper-slide v-for="(item, index) in this.items" :key="index">
       <slot :item="item" :index="index" />
     </swiper-slide>
@@ -19,10 +20,10 @@ import 'swiper/swiper.scss';
   },
 })
 export default class NintendoSwiperSlide extends Vue {
-  @Prop({ type: Number }) private slidesPerView: number;
-  @Prop({ type: Number }) private spaceBetween: number;
-  @Prop({ type: Number }) private slidesPerGroup: number;
-  @Prop({ type: [Object, Array] }) private items: any[];
+  @Prop({ type: Number, default: 6 }) private slidesPerView!: number;
+  @Prop({ type: Number, default: 10 }) private spaceBetween!: number;
+  @Prop({ type: Number, default: 2 }) private slidesPerGroup!: number;
+  @Prop({ type: [Object, Array] }) private items!: any[];
 }
 </script>
 

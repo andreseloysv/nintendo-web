@@ -1,7 +1,8 @@
 <template>
   <div class="horizontal-list">
     <h3 class="result-group-headline"><a href="#">{{ title }}</a></h3>
-    <NintendoSwiperSlide :items="this.items" v-slot="{ item, index }" :slides-per-view="6" :space-between="10" :slides-per-group="2">
+    <NintendoSwiperSlide :items="this.items" v-slot="{ item, index }" :slides-per-view="6" :space-between="10"
+      :slides-per-group="2">
       <HorizontalListItem :item="item" :index="index" />
     </NintendoSwiperSlide>
   </div>
@@ -21,8 +22,8 @@ import HorizontalListItem from './HorizontalListItem.vue';
   },
 })
 export default class HorizontalList extends Vue {
-  @Prop() private title!: string;
-  @Prop() private items: Item[];
+  @Prop({ type: String }) private title!: string;
+  @Prop({ type: Array, required: true }) private items!: Item[];
 }
 </script>
 

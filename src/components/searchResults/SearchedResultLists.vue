@@ -17,7 +17,7 @@ import { ResultList } from './ResultList';
   },
 })
 export default class SearchedResultLists extends Vue {
-  @Prop({ type: String }) private searchTerm: string;
+  @Prop({ type: String }) private searchTerm!: string;
   searchedResultController: SearchedResultController = new SearchedResultController();
   private get resultLists(): ResultList[] {
     return this.searchedResultController.search(this.searchTerm);

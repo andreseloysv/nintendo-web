@@ -11,18 +11,20 @@ enum resultListTItle {
 }
 export class SearchedResultController {
   private searchRepository: SearchDummyRepository = new SearchDummyRepository();
-  public search(searchTerm: string) {
+  public search(searchTerm: string): ResultList[] {
     const searchedDataRaw = this.searchRepository.search(searchTerm);
-    return this.mapSearchedResultRawToSearchedResult(searchedDataRaw);
+    return this.mapToSearchedResult(searchedDataRaw);
   }
-  private mapSearchedResultRawToSearchedResult(searchedDataRaw: any): ResultList[] {
+  // eslint-disable-next-line
+  private mapToSearchedResult(searchedDataRaw: any): ResultList[] {
     const searchedResult: ResultList[] = [];
-    const groups = searchedDataRaw.grouped?.pg_s.groups;
+    const { groups } = searchedDataRaw.grouped.pg_s;
     this.setResultList(groups, searchedResult);
     return searchedResult;
   }
-
+  // eslint-disable-next-line
   private setResultList(groups: any, searchedResult: ResultList[]) {
+    // eslint-disable-next-line
     groups.forEach((groupRaw: any) => {
       const resultList: ResultList = {
         items: [],
@@ -44,8 +46,9 @@ export class SearchedResultController {
       searchedResult.push(resultList);
     });
   }
-
+  // eslint-disable-next-line
   private setItem(docs: any, resultList: ResultList) {
+    // eslint-disable-next-line
     docs.forEach((doc: any) => {
       const item: Item = {};
       item.title = doc.title;
